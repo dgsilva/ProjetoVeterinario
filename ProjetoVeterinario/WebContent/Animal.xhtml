@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Animal</title>
+</h:head>
+<h:body>
+	<p:panel header="Projeto Relatorio">
+		<h:form id="form1" target="_blank">
+			<p:commandButton value="Mostrar Relatorio" action="#{mb.relatorio}"
+				ajax="false">
+			</p:commandButton>
+		</h:form>
+	</p:panel>
+
+	<p:panel header="Gravar Animal">
+		<h:form id="form2">
+			<p:panelGrid columns="2">
+				<h:outputText value="Nome" />
+				<p:inputText value="#{mb.animal.nomeAnimal}" />
+				<h:outputText value="Cor" />
+				<p:inputText value="#{mb.animal.cor}" />
+				<h:outputText value="Raca" />
+				<p:inputText value="#{mb.animal.raca}" />
+				<h:outputText value="Vida" />
+				<p:inputText value="#{mb.animal.vida}" />
+				<h:outputText value="Tamanho" />
+				<p:inputText value="#{mb.animal.tamanho}" />
+				<p:commandButton value="Gravar Animal" update=":form1,:form2,:form3"
+					action="#{mb.gravar}" ajax="true"></p:commandButton>
+			</p:panelGrid>
+
+			<p:messages></p:messages>
+			<p:growl></p:growl>
+
+		</h:form>
+
+	</p:panel>
+
+	<p:panel header="Listar Animal">
+		<h:form id="form3">
+			<p:dataTable value="#{mb.animais}" var="linha" id="tabela1">
+				<p:column headerText="Nome">
+					<h:outputText value="#{linha.nomeAnimal}" />
+				</p:column>
+				<p:column headerText="Cor">
+					<h:outputText value="#{linha.cor}" />
+				</p:column>
+				<p:column headerText="Raca">
+					<h:outputText value="#{linha.raca}" />
+				</p:column>
+				<p:column headerText="Vida">
+					<h:outputText value="#{linha.vida}" />
+				</p:column>
+				<p:column headerText="Tamanho">
+					<h:outputText value="#{linha.tamanho}" />
+				</p:column>
+				<p:column headerText="Excluir">
+				<p:commandButton value="Excluir" update=":form3:tabela1" action="#{mb.excluir}" ajax="true" >
+				<f:setPropertyActionListener value="#{item}" target="#{mb.animal}">
+					</f:setPropertyActionListener>
+				</p:commandButton>
+				<p:messages></p:messages>
+			<p:growl></p:growl>
+				</p:column>
+				
+				<p:column headerText="Alterar">
+				<p:commandButton value="Alterar" onclick="PF('altera').show()" update=":form4" ajax="true" >
+				</p:commandButton>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</p:panel>
+	
+	
+	<p:dialog header="Alterar" widgetVar="altera" modal="true">
+		<h:form id="form4">
+
+			<h:panelGrid columns="2">
+				<h:outputText value="nome" />
+				<p:inputText value="#{mb.animal.nomeAnimal}" required="true">
+				</p:inputText>
+				<h:outputText value="Cor" />
+				<p:inputText value="#{mb.animal.cor}" required="true">
+				</p:inputText>
+				<h:outputText value="Raca" />
+				<p:inputText value="#{mb.animal.raca}" required="true">
+				</p:inputText>
+				<h:outputText value="Vida" />
+				<p:inputText value="#{mb.animal.vida}" required="true">
+				</p:inputText>
+				<h:outputText value="Tamanho" />
+				<p:inputText value="#{mb.animal.tamanho}" required="true">
+				</p:inputText>
+		<p:commandButton value="Alterar" update=":form1,:form3" 
+		action="#{mb.editar}" ajax="true">
+		</p:commandButton>
+			</h:panelGrid>
+			<p:messages></p:messages>
+			<p:growl></p:growl>
+		</h:form>
+	</p:dialog>
+	
+
+</h:body>
+</html>

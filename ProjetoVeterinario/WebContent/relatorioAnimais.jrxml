@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioAnimal" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="01c96f57-7ef6-481d-9d56-908aa72ca2b8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from animal]]>
+	</queryString>
+	<field name="idAnimal" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomeAnimal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="raca" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tamanho" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vida" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="176" y="21" width="210" height="41" uuid="870e585e-c894-464f-885b-3cf285a3b1a6"/>
+				<textElement>
+					<font fontName="Arial" size="24"/>
+				</textElement>
+				<text><![CDATA[Relatório do Animal]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="47" height="20" uuid="d79a0d54-347d-4442-b6d4-d1fc3860e737"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="92" y="0" width="49" height="20" uuid="4b3d4ae6-31a6-4518-b31c-0c8d764ea0f7"/>
+				<text><![CDATA[Cor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="176" y="0" width="71" height="20" uuid="22e820f5-aef8-48cf-9cf8-39b905c48c73"/>
+				<text><![CDATA[Animal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="302" y="0" width="63" height="20" uuid="08958a34-909c-46ce-9cad-b4f0fa35ad37"/>
+				<text><![CDATA[Raça]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="381" y="0" width="50" height="20" uuid="b65ea963-73c9-4178-b5f3-9ed9cb38deca"/>
+				<text><![CDATA[Tamanho]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="0" width="69" height="20" uuid="ad4b5ca5-796e-406a-be17-41215ec71d86"/>
+				<text><![CDATA[Tempo de vida]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="65" height="20" uuid="d1c5c276-6224-4b6b-9497-88c2885b5e46"/>
+				<textFieldExpression><![CDATA[$F{idAnimal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="76" y="0" width="84" height="20" uuid="dea3194c-d05e-4f99-bea6-f12cebeb6d6d"/>
+				<textFieldExpression><![CDATA[$F{cor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="176" y="0" width="88" height="20" uuid="416c5ddc-8f57-49d1-8c84-ec6eeb4f5b27"/>
+				<textFieldExpression><![CDATA[$F{nomeAnimal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="0" width="63" height="20" uuid="6b5012a9-85ff-4cde-b286-bee2672e3bf8"/>
+				<textFieldExpression><![CDATA[$F{raca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="381" y="0" width="64" height="20" uuid="53c00f3f-a7d5-4acf-a6d9-0f099e4e1ab5"/>
+				<textFieldExpression><![CDATA[$F{tamanho}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="0" width="69" height="20" uuid="85a59fda-99a1-46b3-b856-92842c2ff09c"/>
+				<textFieldExpression><![CDATA[$F{vida}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

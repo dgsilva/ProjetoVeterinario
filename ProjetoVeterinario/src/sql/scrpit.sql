@@ -1,0 +1,1 @@
+insert into animal values(null,'Branco e Amarelo','Cachorro','Akira','64-70',12);
