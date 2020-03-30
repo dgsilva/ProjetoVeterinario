@@ -27,7 +27,7 @@ public class AnimalDao {
 	public void update(Animal a)throws Exception{
 		session = HibernateUtil.getSessionFactory().openSession();
 		transaction = session.beginTransaction();
-		session.merge(a);
+		session.update(a);
 		transaction.commit();
 		session.flush();
 		session.close();
@@ -50,5 +50,12 @@ public class AnimalDao {
 		session.flush();
 		session.close();
 		return animais;
+	}
+	
+	public Animal findBycode(Integer cod){
+		session = HibernateUtil.getSessionFactory().openSession();
+		Animal animal = (Animal)session.get(Animal.class, cod);
+		session.close();
+		return animal;
 	}
 }

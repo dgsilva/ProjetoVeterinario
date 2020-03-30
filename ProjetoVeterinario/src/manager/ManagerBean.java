@@ -31,7 +31,6 @@ public class ManagerBean {
 
 	public ManagerBean() {
 		this.animal = new Animal();
-		this.animais = new ArrayList<Animal>();
 	}
 
 	public Animal getAnimal() {
@@ -43,7 +42,9 @@ public class ManagerBean {
 	}
 
 	public List<Animal> getAnimais() {
-		this.animais = new AnimalDao().findAll();
+		if(this.animais == null){
+			this.animais = new AnimalDao().findAll();	
+		}
 		return animais;
 	}
 
@@ -87,7 +88,7 @@ public class ManagerBean {
 		public void editar(){
 			FacesContext fc = FacesContext.getCurrentInstance();
 			try{
-				new AnimalDao().update(this.animal);
+				new AnimalDao().update(animal);
 				this.animal = new Animal();
 				fc.addMessage(null, new FacesMessage("Dados alterados com sucesso"));
 			}catch (Exception ex) {
